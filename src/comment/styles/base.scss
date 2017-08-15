@@ -1,0 +1,9 @@
+@import "./variable.scss";
+
+body, html {
+  line-height: 1;
+  font-family: 'PingFang SC', 'STHEitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  user-select: none; // 元素内的文字及其子元素将不会被选中
+  -webkit-tap-highlight-color: transparent;
+  background: $color-background;
+}
