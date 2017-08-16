@@ -22,7 +22,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'src': resolve('src'),
-      'comment': resolve('src/comment')
+      'test': resolve('static')
     }
   },
   module: {
