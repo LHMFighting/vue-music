@@ -25,12 +25,10 @@ var app = express()
 
 var apiRoutes = express.Router()
 apiRoutes.get('/getDiscList', function (req, res) {
-  console.log('dev-server DiscList');
-  const url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get.diss_by_tag.fcg'
-
+  var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
   axios.get(url, {
     headers: {
-      referer: 'http://c.y.qq.com',
+      referer: 'https://c.y.qq.com/',
       host: 'c.y.qq.com'
     },
     params: req.query
@@ -41,7 +39,7 @@ apiRoutes.get('/getDiscList', function (req, res) {
   })
 })
 
-app.use('./api', apiRoutes)
+app.use('/api', apiRoutes)
 
 var compiler = webpack(webpackConfig)
 

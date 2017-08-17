@@ -11,7 +11,7 @@
 
 <script>
 import BScroll from 'better-scroll'
-import { addClass } from '../comment/js/dom'
+import { addClass } from '../../comment/js/dom'
 
 export default {
   data () {
@@ -111,7 +111,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../comment/styles/variable.scss";
+@import "../../comment/styles/variable.scss";
 // @import "comment/styles/variable.scss";
 
 .slider {
