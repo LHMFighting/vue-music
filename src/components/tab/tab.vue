@@ -22,7 +22,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../comment/styles/variable.scss";
+  @import "../../common/styles/variable.scss";
   .tab {
     display: flex;
     height: 44px;

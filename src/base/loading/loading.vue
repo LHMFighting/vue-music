@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
- @import '../../comment/styles/variable.scss';
+ @import '../../common/styles/variable.scss';
  .loading {
    width: 100%;
    text-align: center;

@@ -82,7 +82,7 @@
 </script>
 
 <style lang="scss">
-  @import '../../comment/styles/variable.scss';
+  @import '../../common/styles/variable.scss';
   .recommend {
     position: fixed;
     width: 100%;

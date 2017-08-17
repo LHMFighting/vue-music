@@ -12,8 +12,8 @@
 </script>
 
 <style lang="scss">
-  @import '../../comment/styles/variable.scss';
-  @import '../../comment/styles/mixin.scss';
+  @import '../../common/styles/variable.scss';
+  @import '../../common/styles/mixin.scss';
 
   .m-header {
     position: relative;

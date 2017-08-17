@@ -5,12 +5,12 @@ import router from './router'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 
-import './comment/styles/index.scss'
+import './common/styles/index.scss'
 
 fastclick.attach(document.body)
 
 Vue.use(VueLazyload, {
-  loading: require('./comment/image/default.png')
+  loading: require('./common/image/default.png')
 })
 
 Vue.config.productionTip = false

@@ -11,7 +11,7 @@
 
 <script>
 import BScroll from 'better-scroll'
-import { addClass } from '../../comment/js/dom'
+import { addClass } from '../../common/js/dom'
 
 export default {
   data () {
@@ -111,8 +111,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../comment/styles/variable.scss";
-// @import "comment/styles/variable.scss";
+@import "../../common/styles/variable.scss";
+// @import "common/styles/variable.scss";
 
 .slider {
   min-height: 1px;
@@ -125,6 +125,16 @@ export default {
       box-sizing: border-box;
       overflow: hidden;
       text-align: center;
+      a {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        width: 100%;
+      }
     }
   }
   .dots {
