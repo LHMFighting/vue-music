@@ -1,13 +1,13 @@
 <template>
-  <transition name="slide">
-    <music-list :title="title" :bg-image="bgImage" :songs="songs"></music-list>
+  <transition>
+    <music-list :rank="rank" :title="title" :bg-image="bgImage" :songs="songs"></music-list>
   </transition>
 </template>
 
 <script>
-import MusicList from '../music-list/music-list'
-import {getSongList} from '../../api/recommend'
+import MusicList from '../../components/music-list/music-list'
 import {mapGetters} from 'vuex'
+import {getMusicList} from '../../api/rank'
 import {ERR_OK} from '../../api/config'
 import {createSong} from '../../common/js/song'
 
@@ -15,41 +15,45 @@ export default {
   components: {
     MusicList
   },
+  created () {
+    this._getMusicList()
+  },
   data () {
     return {
-      songs: []
+      songs: [],
+      rank: true
     }
-  },
-  created () {
-    this._getSongList()
   },
   computed: {
     title () {
-      return this.disc.dissname
+      return this.topList.topTitle
     },
     bgImage () {
-      return this.disc.imgurl
+      if (this.songs.length) {
+        return this.songs[0].image
+      }
+      return ''
     },
     ...mapGetters([
-      'disc'
+      'topList'
     ])
   },
   methods: {
-    _getSongList () {
-      if (!this.disc.dissid) {
-        this.$router.push('/recommend')
+    _getMusicList () {
+      if (!this.topList.id) {
+        this.$router.push('/rank')
         return
       }
-      getSongList(this.disc.dissid).then((res) => {
+      getMusicList(this.topList.id).then((res) => {
         if (res.code === ERR_OK) {
-          this.songs = this._normalizeSongs(res.cdlist[0].songlist)
-          console.log(res.cdlist)
+          this.songs = this._normalizeSongs(res.songlist)
         }
       })
     },
     _normalizeSongs (list) {
       let ret = []
-      list.forEach(musicData => {
+      list.forEach((item) => {
+        const musicData = item.data
         if (musicData.songid && musicData.albumid) {
           ret.push(createSong(musicData))
         }
@@ -62,10 +66,9 @@ export default {
 
 <style lang="scss" scoped>
   .slide-enter-active, .slide-leave-active {
-    transition: all 0.3s
+    transition: all 0.3 ease;
   }
   .slide-enter, .slide-leave-to {
-    transform: translate(100%, 0, 0)
+    transform: translate3d(100%, 0, 0);
   }
 </style>
-

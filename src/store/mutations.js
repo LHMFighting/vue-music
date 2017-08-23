@@ -14,7 +14,7 @@ const matutaions = {
     state.playlist = playlist
   },
   [types.SET_SEQUENCE_LIST] (state, sequencelist) {
-    state.sequencelist = sequencelist
+    state.sequenceList = sequencelist
   },
   [types.SET_PLAY_MODE] (state, mode) {
     state.mode = mode
@@ -24,6 +24,9 @@ const matutaions = {
   },
   [types.SET_DISC] (state, disc) {
     state.disc = disc
+  },
+  [types.SET_TOP_LIST] (state, toplist) {
+    state.topList = toplist
   }
 }
 
