@@ -8,6 +8,11 @@ import VueLazyload from 'vue-lazyload'
 
 import './common/styles/index.scss'
 
+/* eslint-disable no-unused-vars */
+// import vConsole from 'vconsole'
+
+console.log('text')
+
 fastclick.attach(document.body)
 
 Vue.use(VueLazyload, {
