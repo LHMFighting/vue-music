@@ -1,14 +1,64 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Recommend from '../components/recommend/recommend.vue'
-import Singer from '../components/singer/singer.vue'
-import Rank from '../components/rank/rank.vue'
-import Search from '../components/search/search.vue'
-import SingerDetail from '../components/singer-detail/singer-detail.vue'
-import Disc from '../components/disc/disc.vue'
-import TopList from '../components/top-list/top-list.vue'
+// import Recommend from '../components/recommend/recommend.vue'
+// import Singer from '../components/singer/singer.vue'
+// import Rank from '../components/rank/rank.vue'
+// import Search from '../components/search/search.vue'
+// import SingerDetail from '../components/singer-detail/singer-detail.vue'
+// import Disc from '../components/disc/disc.vue'
+// import TopList from '../components/top-list/top-list.vue'
+// import UserCenter from '../components/user-cener/user-center.vue'
 
 Vue.use(Router)
+
+// 异步加载路由（路由懒加载）
+const Recommend = (resolve) => {
+  import('../components/recommend/recommend.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Singer = (resolve) => {
+  import('../components/singer/singer.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Rank = (resolve) => {
+  import('../components/rank/rank.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Search = (resolve) => {
+  import('../components/search/search.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const SingerDetail = (resolve) => {
+  import('../components/singer-detail/singer-detail.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Disc = (resolve) => {
+  import('../components/disc/disc.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const TopList = (resolve) => {
+  import('../components/top-list/top-list.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const UserCenter = (resolve) => {
+  import('../components/user-cener/user-center.vue').then((module) => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   routes: [
@@ -55,6 +105,10 @@ export default new Router({
           component: SingerDetail
         }
       ]
+    },
+    {
+      path: '/user',
+      component: UserCenter
     }
   ]
 })
