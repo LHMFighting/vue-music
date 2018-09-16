@@ -33,7 +33,7 @@ export function getDiscList () {
 }
 
 export function getSongList (disstid) {
-  const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
+  const url = '/api/getSongList'
   const data = Object.assign({}, commonParams, {
     disstid,
     type: 1,
@@ -43,7 +43,12 @@ export function getSongList (disstid) {
     platform: 'yqq',
     hostUin: 0,
     needNewCode: 0,
-    g_tk: 5381
+    g_tk: 5381,
+    format: 'json'
   })
-  return jsonp(url, data, {param: 'jsonpCallback', prefix: 'playlistinfoCallback'})
+  return axios.get(url, {
+    params: data
+  }).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }

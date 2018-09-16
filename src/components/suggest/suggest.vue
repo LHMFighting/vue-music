@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {search} from '../../api/search'
+import {getSearch} from '../../api/search'
 import {ERR_OK} from '../../api/config'
 import {createSong} from '../../common/js/song'
 import Scroll from '../../base/scroll/scroll'
@@ -71,7 +71,7 @@ export default {
       this.hasMore = true
       this.page = 1
       this.$refs.suggest.scrollTo(0, 0)
-      search(this.query, this.page, this.showSinger, perpage).then((res) => {
+      getSearch(this.query, this.page, this.showSinger, perpage).then((res) => {
         if (res.code === ERR_OK) {
           this.result = this._getResult(res.data)
           this._checkMore(res.data)
@@ -83,7 +83,7 @@ export default {
         return
       }
       this.page++
-      search(this.query, this.page, this.showSinger, perpage).then((res) => {
+      getSearch(this.query, this.page, this.showSinger, perpage).then((res) => {
         if (res.code === ERR_OK) {
           this.result = this.result.concat(this._getResult(res.data))
           this._checkMore(res.data)

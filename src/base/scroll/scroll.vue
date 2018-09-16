@@ -25,6 +25,7 @@ export default {
       type: Boolean,
       default: false
     },
+    // 是否下拉刷新
     pullup: {
       type: Boolean,
       default: false
@@ -59,6 +60,7 @@ export default {
           me.$emit('scroll', pos)
         })
       }
+      // 下拉刷新函数
       if (this.pullup) {
         this.scroll.on('scrollEnd', () => {
           if (this.scroll.y <= this.scroll.maxScrollY + 50) {
